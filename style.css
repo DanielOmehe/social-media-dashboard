@@ -13,10 +13,11 @@
     --facebook: hsl(208, 92%, 53%);
     --twitter: hsl(203, 89%, 53%);
     --instagram: linear-gradient(to right, #fdc468e6, #df4996);
-    /* --instagram: hsl(37, 97%, 70%); */
     --youtube: hsl(348, 97%, 39%);
     --theme: hsl(230, 22%, 74%);
     --text-theme: hsl(230, 22%, 74%);
+
+    --border: 2px solid black;
 
     --bg: hsl(0, 0%, 100%);
     --pattern: hsl(225, 100%, 98%);
@@ -43,6 +44,7 @@
     --text: hsl(0, 0%, 100%);
     --left: 3px;
     --theme: linear-gradient(#378fe6, #3eda82);
+    --border: 2px solid white;
     --text-theme: hsl(160, 1%, 57%);
 }
 
@@ -205,6 +207,7 @@ body{
     justify-content: center;
     gap: 10px;
     margin-bottom: 25px;
+    color: var(--text);
 }
 
 .followers{
@@ -331,17 +334,17 @@ body{
     align-items: center;
     justify-content: center;
     background: var(--pattern);
+    color: var(--text);
 }
 
 .attribution a{
-    color: black;
+    color: var(--text);
     margin-left: 5px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
     .dashboard{
-        width: 100%;
-        padding: 30px;
+        padding: 30px 20px;
     }
 
     .dashboard-header{
@@ -349,55 +352,44 @@ body{
     }
 
     .dashboard-header-title{
-        padding-bottom: 30px;
-        margin-bottom: 10px;
-        border-bottom: 2px solid black;
+        width: 100%;
+        border-bottom: var(--border);
+        padding-bottom: 20px;
+    }
+
+    .dashboard-header-title h1{
+        font-size: 25px;
     }
 
     .theme{
-        padding: 10px;
+        margin-top: 20px;
         width: 100%;
         justify-content: space-between;
     }
 
     .dashboard-container{
         width: 100%;
-        min-height: 1000px;
-        border: 2px solid green;
+        height: auto;
         display: flex;
         flex-direction: column;
     }
 
     .dashboard-info{
-        height: 700px;
         display: flex;
         flex-direction: column;
-        border: 2px solid firebrick;
-    }
-
-    .info-card{
-        width: 100%;
-        height: 100%;
     }
 
     .dashboard-overview{
-        border: 2px solid #df4996;
         display: flex;
         flex-direction: column;
     }
 
-    .overview-card{
-        width: 100%;
+    .dashboard-overview-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .attribution{
+        font-size: 12px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
