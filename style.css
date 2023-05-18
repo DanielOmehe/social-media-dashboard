@@ -68,7 +68,7 @@ body{
     left: 0;
 }
 
-.dashboard{
+.dashboard-wrapper{
     padding: 60px 150px;
     position: relative;
     z-index: 1;
