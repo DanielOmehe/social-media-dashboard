@@ -12,23 +12,22 @@
     --bright-red: hsl(356, 69%, 56%);
     --facebook: hsl(208, 92%, 53%);
     --twitter: hsl(203, 89%, 53%);
-    --instagram: linear-gradient(hsl(37, 97%, 70%), to hsl(329, 70%, 58%));
+    --instagram: linear-gradient(to right, #fdc468e6, #df4996);
+    /* --instagram: hsl(37, 97%, 70%); */
     --youtube: hsl(348, 97%, 39%);
 
     --dark-theme: linear-gradient(hsl(210, 78%, 56%), to hsl(146, 68%, 55%));
-    --light-theme: hsl(230, 22%, 74%);
+    --theme: hsl(230, 22%, 74%);
 
-    --dark-bg: hsl(230, 17%, 14%);
-    --dark-pattern: hsl(232, 19%, 15%);
-    --dark-card-bg: hsl(228, 28%, 20%);
-    --dark-text: hsl(228, 34%, 66%);
-    --white-text: hsl(0, 0%, 100%);
-
-    --light-bg: hsl(0, 0%, 100%);
-    --light-pattern: hsl(225, 100%, 98%);
-    --light-card-bg: hsl(227, 47%, 96%);
+    --bg: hsl(0, 0%, 100%);
+    --pattern: hsl(225, 100%, 98%);
+    --card-bg: hsl(227, 47%, 96%);
     --greyish-blue: hsl(228, 12%, 14%);
     --dark-blue: hsl(230, 17%, 14%);
+    --dark-text: hsl(228, 34%, 66%);
+    --white-text: hsl(0, 0%, 100%);
+    --card-hover: hsl(228, 26%, 87%);
+    --switch-bg: var(--bg);
 
     --font-size: 14px;
     --font-weight-light: 400;
@@ -36,17 +35,280 @@
     --font-family: 'Inter', sans-serif;
 }
 
+[data-theme= 'dark']{
+    --bg: hsl(230, 17%, 14%);
+    --pattern: hsl(232, 19%, 15%);
+    --card-bg: hsl(228, 28%, 20%);
+    --card-hover: hsl(232, 31%, 91%);
+    --theme: linear-gradient(hsl(210, 78%, 56%), to hsl(146, 68%, 55%));
+    --switch-bg: black;
+}
+
 body{
     width: 100%;
     height: 100vh;
+    width: 100%;
+    height: 100%;
+    background: var(--light-theme), var(--light-bg);
+}
+
+.background{
+    background: var(--pattern);
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
 }
 
 .dashboard{
-    width: 100%;
-    height: 100%;
-    background: var(--light-bg);
+    padding: 60px 150px;
+    position: relative;
+    z-index: 1;
 }
 
-.dashboard .dashboard-header{
+.dashboard-header{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 45px;
+}
+
+.dashboard-header-title h1{
+    font-size: 35px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 5px;
+}
+
+.dashboard-header-title h3{
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+.theme{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme h3{
+    font-size: 14px;
+    color: var(--light-theme);
+    font-weight: 500;
+}
+
+.switch{
+    width: 60px;
+    height: 25px;
+    border-radius: 25px;
+    background: var(--theme);
+    position: relative;
+    cursor: pointer;
+}
+
+.switch::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: var(--switch-bg);
+    position: absolute;
+    top: .18rem;
+    left: 2.5px;
+    border-radius: 100%;
+}
+
+.dashboard-container{
+    height: 650px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 300px;
+    gap: 80px;
+}
+
+.dashboard-info{
+    grid-row: 1/2;
+    display: grid;
+    height: 100%;
+    place-items: center;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.info-card{
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg);
+    text-align: center;
+    position: relative;
+    padding: 30px 0;
+    border-radius: 5px;
+}
+
+.info-card:hover{
+    background-color: var(--card-hover);
+}
+
+.info-card:nth-child(1)::before{
+    content: "";
+    width: 100%;
+    height: 8px;
+    background: var(--facebook);
+    position: absolute;
+    left: 0;
+    top: -5px;
+    border-radius: 5px 5px 0 0;
+}
+
+.info-card:nth-child(2)::before{
+    content: "";
+    width: 100%;
+    height: 8px;
+    background: var(--twitter);
+    left: 0;
+    top: -5px;
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+}
+.info-card:nth-child(3)::before{
+    content: "";
+    width: 100%;
+    height: 8px;
+    background: var(--instagram);
+    left: 0;
+    top: -5px;
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+}
+.info-card:nth-child(4)::before{
+    content: "";
+    width: 100%;
+    height: 8px;
+    background: var(--youtube);
+    left: 0;
+    top: -5px;
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.followers{
+    margin-bottom: 10px;
+}
+
+.followers h1{
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.followers p{
+    font-size: 20px;
+    letter-spacing: .23rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.info-card .up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.info-card .up p{
+    color: var(--lime-green);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+}
+
+.info-card .down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.info-card .down p{
+    color: var(--bright-red);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+}
+
+.dashboard-overview{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    grid-template-rows: 30px 1fr;
+}
+
+.dashboard-overview-header h1{
+    font-size: 35px;
+}
+
+.dashboard-overview-container{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.overview-card{
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.overview-card:hover{
+    background-color: var(--card-hover);
+}
+
+.overview-card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.overview-card-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview-card-content .up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.overview-card-content .up p{
+    color: var(--lime-green);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size);
+}
+
+.overview-card-content .down{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.overview-card-content .down p{
+    color: var(--bright-red);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size);
 }
