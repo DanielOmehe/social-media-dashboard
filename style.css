@@ -15,19 +15,18 @@
     --instagram: linear-gradient(to right, #fdc468e6, #df4996);
     /* --instagram: hsl(37, 97%, 70%); */
     --youtube: hsl(348, 97%, 39%);
-
-    --dark-theme: linear-gradient(hsl(210, 78%, 56%), to hsl(146, 68%, 55%));
     --theme: hsl(230, 22%, 74%);
+    --text-theme: hsl(230, 22%, 74%);
 
     --bg: hsl(0, 0%, 100%);
     --pattern: hsl(225, 100%, 98%);
     --card-bg: hsl(227, 47%, 96%);
     --greyish-blue: hsl(228, 12%, 14%);
     --dark-blue: hsl(230, 17%, 14%);
-    --dark-text: hsl(228, 34%, 66%);
-    --white-text: hsl(0, 0%, 100%);
+    --text: hsl(0, 12%, 10%);
     --card-hover: hsl(228, 26%, 87%);
     --switch-bg: var(--bg);
+    --left: 37px;
 
     --font-size: 14px;
     --font-weight-light: 400;
@@ -35,21 +34,26 @@
     --font-family: 'Inter', sans-serif;
 }
 
-[data-theme= 'dark']{
+[data-theme = "dark"]{
     --bg: hsl(230, 17%, 14%);
     --pattern: hsl(232, 19%, 15%);
     --card-bg: hsl(228, 28%, 20%);
-    --card-hover: hsl(232, 31%, 91%);
-    --theme: linear-gradient(hsl(210, 78%, 56%), to hsl(146, 68%, 55%));
+    --card-hover: hsl(232, 20%, 31%);
     --switch-bg: black;
+    --text: hsl(0, 0%, 100%);
+    --left: 3px;
+    --theme: linear-gradient(#378fe6, #3eda82);
+    --text-theme: hsl(160, 1%, 57%);
 }
+
 
 body{
     width: 100%;
     height: 100vh;
     width: 100%;
     height: 100%;
-    background: var(--light-theme), var(--light-bg);
+    background: var(--bg);
+    transition: all .3s linear;
 }
 
 .background{
@@ -80,12 +84,14 @@ body{
     font-size: 35px;
     font-weight: var(--font-weight-bold);
     margin-bottom: 5px;
+    color: var(--text);
 }
 
 .dashboard-header-title h3{
     font-size: 16px;
     line-height: 25px;
     font-weight: 400;
+    color: var(--text);
 }
 
 .theme{
@@ -96,7 +102,7 @@ body{
 
 .theme h3{
     font-size: 14px;
-    color: var(--light-theme);
+    color: var(--text-theme);
     font-weight: 500;
 }
 
@@ -109,15 +115,15 @@ body{
     cursor: pointer;
 }
 
-.switch::before{
-    content: "";
+.circle{
     width: 20px;
     height: 20px;
     background-color: var(--switch-bg);
     position: absolute;
-    top: .18rem;
-    left: 2.5px;
+    top: .155rem;
+    left: var(--left);
     border-radius: 100%;
+    transition: all .3s linear;
 }
 
 .dashboard-container{
@@ -208,6 +214,7 @@ body{
 .followers h1{
     font-size: 40px;
     margin-bottom: 5px;
+    color: var(--text);
 }
 
 .followers p{
@@ -215,6 +222,7 @@ body{
     letter-spacing: .23rem;
     text-transform: uppercase;
     margin-bottom: 30px;
+    color: var(--text);
 }
 
 .info-card .up{
@@ -253,6 +261,7 @@ body{
 
 .dashboard-overview-header h1{
     font-size: 35px;
+    color: var(--text);
 }
 
 .dashboard-overview-container{
@@ -279,12 +288,14 @@ body{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 25px;
+    color: var(--text);
 }
 
 .overview-card-content{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--text);
 }
 
 .overview-card-content .up{
@@ -312,3 +323,81 @@ body{
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size);
 }
+
+.attribution{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pattern);
+}
+
+.attribution a{
+    color: black;
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 768px){
+    .dashboard{
+        width: 100%;
+        padding: 30px;
+    }
+
+    .dashboard-header{
+        flex-direction: column;
+    }
+
+    .dashboard-header-title{
+        padding-bottom: 30px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .theme{
+        padding: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dashboard-container{
+        width: 100%;
+        min-height: 1000px;
+        border: 2px solid green;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard-info{
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid firebrick;
+    }
+
+    .info-card{
+        width: 100%;
+        height: 100%;
+    }
+
+    .dashboard-overview{
+        border: 2px solid #df4996;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .overview-card{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
